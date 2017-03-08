@@ -1,26 +1,79 @@
 <html>
   <head>
     <style>
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: arial, sans-serif;
+        letter-spacing: 0.025em;
+      }
+      nav {
+        position: fixed;
+        width: 100%;
+        height: 100px;
+        background-color: #333333;
+      }
+      .logo {
+        position: absolute;
+        top:-100px;
+      }
+      main {
+        position: absolute;
+        top:100px;
+      }
+
+      h1 {
+        display: inline-block;
+        font-weight: normal;
+        position: relative;
+        top: 20px;
+        margin-bottom: 43px;
+        background-color: #dc022e;
+        padding: 10px;
+        color: white;
+      }
+
+      article {
+        border-top: 1px solid #c9c9c9;
+      }
+
+      p {
+        font-weight: light;
+      }
+
+
       /* Small devices (phones, upto 768px) */
       @media (max-width: 768px) { ... }
-
+      main {
+        margin-left: 5%;
+        width: 90%;
+        height: 100%;
+      }
       /* Small devices (tablets, 768px and up) */
       @media (max-width: 992px) { ... }
-
+        main {
+          margin-left:10%;
+          max-width: 80%;
+      }
       /* Medium devices (desktops, 992px and up) */
       @media (max-width: 1200px) { ... }
-
+        main {
+          margin-left:20%;
+          max-width: 60%;
+      }
       /* Large devices (large desktops, 1200px and up) */
-      @media (min-width: 1200px) { ... }
+      @media (min-width: 1200px) { 
+        main {
+          margin-left:20%;
+          max-width: 60%;
+      }
     </style>
   </head>
   <body>
-    <nav>
-      
-    </nav>
+    <nav></nav>
     <main>
       <section>
-        <img src="assets/logo.png" alt="Havas" />
+        <img class="logo" src="assets/logo.png" alt="Havas" />
         <header>
           <h1>About Us</h1>
           <article>
