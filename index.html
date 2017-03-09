@@ -67,6 +67,16 @@
           width: 90%;
           height: 100%;
         }
+        .figOne {
+          float:  left;
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .figTwo {
+          float: right;
+          width: 100%;
+          margin-bottom: 20px;
+        }
       }
 
       /* Small devices (phones, tablets etc) */
@@ -121,6 +131,37 @@
         }
       }        
     </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      function cb(data) {
+        console.log('cb');
+        var i = 0;
+        console.log(data);
+        console.log(data.items);
+        var imgs = data.items;
+        console.log(imgs.media.m)
+
+        var result = imgs.map(function(a) {return a.media.m;});
+        console.log(result)
+
+        for ( var i = 0; i < result.length; i++ ) {
+          var figs = $("<img src="+result[i]+".jpg />");
+          console.log(figs)
+          $("#flickrImgs").append(figs)
+        }
+
+
+
+      //use returned data 
+      }
+      (function () {
+        var tags = 'london'; 
+        var script = document.createElement('script');
+        script.src = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=cb&tags=' + tags;
+        document.head.appendChild(script);
+      })();
+    </script>
   </head>
   <body>
     <nav></nav>
@@ -147,6 +188,9 @@
           <header>
             <h1>Flickr</h1>
         </header>    
+        <section id="flickrImgs">
+
+        </section>
       </section>
     </main>
   </body>
