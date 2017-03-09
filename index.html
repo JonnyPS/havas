@@ -77,6 +77,11 @@
           width: 100%;
           margin-bottom: 20px;
         }
+        .tiles {
+          float:left;
+          height:auto;
+          width:33%;
+        }
       }
 
       /* Small devices (phones, tablets etc) */
@@ -94,6 +99,11 @@
           float: right;
           width: 100%;
           margin-bottom: 20px;
+        }
+        .tiles {
+          float:left;
+          height:auto;
+          width:20%;
         }
       }
 
@@ -135,25 +145,29 @@
     <script type="text/javascript">
 
       function cb(data) {
-        console.log('cb');
         var i = 0;
-        console.log(data);
-        console.log(data.items);
         var imgs = data.items;
-        console.log(imgs.media.m)
-
         var result = imgs.map(function(a) {return a.media.m;});
-        console.log(result)
 
         for ( var i = 0; i < result.length; i++ ) {
-          var figs = $("<img src="+result[i]+".jpg />");
+          var figs = $("<img class="+'tiles'+" src="+result[i]+" />");
           console.log(figs)
           $("#flickrImgs").append(figs)
         }
 
+        // hoer events
+        var greeting = document.getElementsByClassName("tiles");
+        for (i = 0; i < greeting.length; i++) {
+          greeting[i].onmouseover = function() {
+              $( this ).css('opacity','0.5')
+          };
+        }
 
-
-      //use returned data 
+        for (i = 0; i < greeting.length; i++) {
+          greeting[i].onmouseout = function() {
+              $( this ).css('opacity','1')
+          };
+        }
       }
       (function () {
         var tags = 'london'; 
